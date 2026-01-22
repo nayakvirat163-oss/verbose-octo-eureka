@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinmaya Vidyalaya Bokaro - Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .school-info h1 {
+            font-size: 24px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+        .school-info p {
+            font-size: 11px;
+            color: #666;
+            letter-spacing: 3px;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        .nav-menu a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-menu a:hover {
+            color: #667eea;
+        }
+        .portal-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .portal-btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            color: white;
+            transition: transform 0.3s;
+        }
+        .student-portal {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+        .teacher-portal {
+            background: linear-gradient(135deg, #764ba2, #f093fb);
+        }
+        .portal-btn:hover {
+            transform: translateY(-2px);
+        }
+        .hero {
+            margin-top: 80px;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #e0f2fe, #fae8ff);
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #1f2937;
+        }
+        .hero h1 span {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .cta-btn {
+            padding: 15px 40px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s;
+        }
+        .cta-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+        .cta-secondary {
+            border: 2px solid #667eea;
+            color: #667eea;
+            background: transparent;
+        }
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+        }
+        .stat-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .stat-card i {
+            font-size: 40px;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        .stat-card h3 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #1f2937;
+        }
+        .stat-card p {
+            color: #666;
+        }
+        section {
+            padding: 80px 20px;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 50px;
+            color: #1f2937;
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .about-content h3 {
+            font-size: 28px;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        .about-content p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        .highlights {
+            background: linear-gradient(135deg, #e0f2fe, #fae8ff);
+            padding: 40px;
+            border-radius: 20px;
+        }
+        .highlights h3 {
+            font-size: 28px;
+            margin-bottom: 25px;
+        }
+        .highlights ul {
+            list-style: none;
+        }
+        .highlights li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: start;
+            color: #333;
+        }
+        .highlights li i {
+            color: #667eea;
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+        .admission-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .step-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+        .step-card h3 {
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-top: 30px;
+        }
+        .card h3 {
+            font-size: 28px;
+            margin-bottom: 25px;
+            color: #1f2937;
+        }
+        .doc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        .doc-section h4 {
+            color: #667eea;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        .doc-section ul {
+            list-style: none;
+        }
+        .doc-section li {
+            margin-bottom: 10px;
+            color: #666;
+        }
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .facility-card {
+            background: linear-gradient(135deg, #e0f2fe, #fae8ff);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .facility-card:hover {
+            transform: translateY(-5px);
+        }
+        .facility-card i {
+            font-size: 48px;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item {
+            height: 250px;
+            background: linear-gradient(135deg, #e0f2fe, #fae8ff);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-weight: 600;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: start;
+            margin-bottom: 25px;
+        }
+        .contact-item i {
+            font-size: 24px;
+            color: #667eea;
+            margin-right: 20px;
+            margin-top: 5px;
+        }
+        .contact-item h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        .contact-item p {
+            color: #666;
+        }
+        .contact-input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        footer {
+            background: #1f2937;
+            color: white;
+            padding: 50px 20px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto 30px;
+        }
+        .footer-section h3 {
+            margin-bottom: 20px;
+        }
+        .footer-section ul {
+            list-style: none;
+        }
+        .footer-section a {
+            color: #9ca3af;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .footer-section a:hover {
+            color: white;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+        }
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            .portal-buttons {
+                flex-direction: column;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .about-grid, .contact-grid, .doc-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-content">
+            <div class="logo-section">
+                <div class="logo">ॐ</div>
+                <div class="school-info">
+                    <h1>Chinmaya Vidyalaya</h1>
+                    <p>BOKARO STEEL CITY</p>
+                </div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#admissions">Admissions</a></li>
+                <li><a href="#academics">Academics</a></li>
+                <li><a href="#facilities">Facilities</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="portal-buttons">
+                <a href="https://cvbokaro2.vercel.app" class="portal-btn student-portal">Student Portal</a>
+                <a href="https://cvbokaro2.vercel.app" class="portal-btn teacher-portal">Teacher Portal</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Welcome to <span>Chinmaya Vidyalaya</span></h1>
+            <p>Nurturing Young Minds Since 1999 | CBSE Affiliated | Classes 3-9</p>
+            <div class="cta-buttons">
+                <a href="#admissions" class="cta-btn cta-primary">Apply Now for 2025-26</a>
+                <a href="#contact" class="cta-btn cta-secondary">Contact Us</a>
+            </div>
+            <div class="stats">
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <h3>2800+</h3>
+                    <p>Students</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-book-open"></i>
+                    <h3>3-9</h3>
+                    <p>Classes</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-award"></i>
+                    <h3>25+</h3>
+                    <p>Years Excellence</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-building"></i>
+                    <h3>Modern</h3>
+                    <p>Campus</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <div class="about-grid">
+                <div class="about-content">
+                    <h3>Our Mission</h3>
+                    <p>Chinmaya Vidyalaya, Bokaro is committed to providing holistic education that nurtures intellectual, emotional, and spiritual growth. We believe in creating future leaders who are not only academically excellent but also morally strong.</p>
+                    <h3>Our Vision</h3>
+                    <p>To be a center of educational excellence where students develop critical thinking, creativity, and compassion. We aim to build character, instill values, and prepare students for global citizenship.</p>
+                </div>
+                <div class="highlights">
+                    <h3>Key Highlights</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> CBSE Affiliated School</li>
+                        <li><i class="fas fa-check-circle"></i> Established in 1999 with 25+ years of excellence</li>
+                        <li><i class="fas fa-check-circle"></i> 2800+ students across classes 3 to 9</li>
+                        <li><i class="fas fa-check-circle"></i> Highly qualified and experienced faculty</li>
+                        <li><i class="fas fa-check-circle"></i> State-of-the-art infrastructure</li>
+                        <li><i class="fas fa-check-circle"></i> Focus on values and character building</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admissions Section -->
+    <section id="admissions" style="background: #f9fafb;">
+        <div class="container">
+            <h2 class="section-title">Admissions 2025-26</h2>
+            <p style="text-align: center; font-size: 18px; color: #666; margin-bottom: 50px;">Join the Chinmaya family today!</p>
+            <div class="admission-steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Registration</h3>
+                    <p>Fill online admission form</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Documents</h3>
+                    <p>Submit required documents</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Interview</h3>
+                    <p>Parent-student interaction</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Admission</h3>
+                    <p>Fee payment & enrollment</p>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Eligibility & Required Documents</h3>
+                <div class="doc-grid">
+                    <div class="doc-section">
+                        <h4>Eligibility Criteria:</h4>
+                        <ul>
+                            <li>• Class 3: Age 7-8 years (as on 31st March 2025)</li>
+                            <li>• Class 4-9: Previous class mark sheet required</li>
+                            <li>• Transfer Certificate from previous school</li>
+                            <li>• Character Certificate</li>
+                        </ul>
+                    </div>
+                    <div class="doc-section">
+                        <h4>Required Documents:</h4>
+                        <ul>
+                            <li>• Birth Certificate (original + photocopy)</li>
+                            <li>• Aadhar Card of student & parents</li>
+                            <li>• Latest passport size photographs (4 copies)</li>
+                            <li>• Address proof (electricity bill/rent agreement)</li>
+                            <li>• Previous year mark sheet & TC</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="https://cvbokaro2.vercel.app" class="cta-btn cta-primary" style="display: inline-block;">Apply Online Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academics Section -->
+    <section id="academics">
+        <div class="container">
+            <h2 class="section-title">Academics</h2>
+            <div class="admission-steps">
+                <div class="step-card">
+                    <i class="fas fa-book" style="font-size: 48px; color: #667eea; margin-bottom: 20px;"></i>
+                    <h3>Curriculum</h3>
+                    <p>CBSE affiliated curriculum for holistic development</p>
+                </div>
+                <div class="step-card">
+                    <i class="fas fa-graduation-cap" style="font-size: 48px; color: #667eea; margin-bottom: 20px;"></i>
+                    <h3>Classes</h3>
+                    <p>Primary (3-5), Middle (6-8), Secondary (9)</p>
+                </div>
+                <div class="step-card">
+                    <i class="fas fa-chart-line" style="font-size: 48px; color: #667eea; margin-bottom: 20px;"></i>
+                    <h3>Assessment</h3>
+                    <p>Regular evaluation for continuous improvement</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section id="facilities" style="background: #f9fafb;">
+        <div class="container">
+            <h2 class="section-title">World-Class Facilities</h2>
+            <div class="facilities-grid">
+                <div class="facility-card">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>Smart Classrooms</h3>
+                </div>
+                <div class="facility-card">
+                    <i class="fas fa-flask"></i>
+                    <h3>Science Labs</h3>
+                </div>
+                <div class="facility-card">
+                    <i class="fas fa-laptop"></i>
+                    <h3>Computer Labs</h3>
+                </div>
+                <div class="facility-card">
+                    <i class="fas fa-football-ball"></i>
+                    <h3>Sports Ground</h3>
+                </div>
+                <div class="facility-card">
+                    <i class="fas fa-book-reader"></i>
+                    <h3>Library</h3>
+                </div>
+                <div class="facility-card">
+                    <i class="fas fa-theater-masks"></i>
+                    <h3>Auditorium</h3>
+                </div>
+                <div class="facility-card">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Cafeteria</h3>
+                </div>
+                <div class="facility-card">
+                    <i class="fas fa-bus"></i>
+                    <h3>Transportation</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="container">
+            <h2 class="section-title">Photo Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">School Event Photo 1</div>
+                <div class="gallery-item">School Event Photo 2</div>
+                <div class="gallery-item">School Event Photo 3</div>
+                <div class="gallery-item">School Event Photo 4</div>
+                <div class="gallery-item">School Event Photo 5</div>
+                <div class="gallery-item">School Event Photo 6</div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="https://www.youtube.com/@chinmayavidyalayabokaro9965" target="_blank" class="cta-btn cta-primary" style="display: inline-block; background: #FF0000;">
+                    <i class="fab fa-youtube"></i> Visit Our YouTube Channel
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background: #f9fafb;">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-grid">
+                <div>
+                    <h3 style="font-size: 28px; color: #667eea; margin-bottom: 30px;">Get In Touch</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>Chinmaya Vidyalaya, Bokaro Steel City<br>Jharkhand - 827001</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>Office: +91-XXXXX-XXXXX<br>Principal: +91-XXXXX-XXXXX</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@cvbokaro.in<br>admissions@cvbokaro.in</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>School Hours</h4>
+                            <p>Monday - Saturday: 8:00 AM - 2:30 PM<br>Sunday: Closed</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 style="font-size: 28px; color: #667eea; margin-bottom: 30px;">Send us a Message</h3>
+                    <input type="text" class="contact-input" placeholder="Your Name">
+                    <input type="email" class="contact-input" placeholder="Your Email">
+                    <input type="tel" class="contact-input" placeholder="Your Phone">
+                    <textarea class="contact-input" rows="5" placeholder="Your Message"></textarea>
+                    <button class="submit-btn">Send Message</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h3>Chinmaya Vidyalaya</h3>
+                <p style="color: #9ca3af;">Nurturing excellence since 1999</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#admissions">Admissions</a></li>
+                    <li><a href="#academics">Academics</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li><a href="https://www.youtube.com/@chinmayavidyalayabokaro9965">YouTube</a></li>
+                    <li><a href="#">Facebook</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025-2026 Chinmaya Vidyalaya, Bokaro. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
